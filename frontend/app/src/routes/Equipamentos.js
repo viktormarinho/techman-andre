@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { Equipamento } from "./Equipamento"
+import { Equipamento } from "./components/Equipamento"
 
-function App() {
+function Equipamentos() {
 
   const [equipamentos, setEquipamentos] = useState('Carregando equipamentos...')
   useEffect(() => {
@@ -24,4 +24,4 @@ function App() {
   }
 }
 
-export default App
+export default Equipamentos

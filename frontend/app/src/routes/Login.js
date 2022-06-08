@@ -12,9 +12,19 @@ export default function Login(){
         console.log(senha);
     }
 
+    const handleLogin = () => {
+        fetch(`/login/${senha}`)
+            .then(res => res.json().then(data => {
+                if (data.status){
+                    navigate('/equipamentos');
+                }
+            }))
+    }
+
     return (
         <div style={loginpageStyle}>
             <h2>login page</h2>
+            <h1>{senha}</h1>
             <div style={keyboardStyle}>
                 <Keyboard
                 layout={{
@@ -23,15 +33,13 @@ export default function Login(){
                 onChange={changeHandler}
                 />
             </div>
-            <button onClick={() => {
-                navigate('/equipamentos')
-            }}>Dale guys</button>
+            <button onClick={handleLogin}>Dale guys</button>
         </div>
     )
 }
 
 const keyboardStyle = {
-    width: "10vw"
+    width: "10vw",
 }
 
 const loginpageStyle = {
@@ -39,5 +47,6 @@ const loginpageStyle = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    height: '85vh',
     width: '100vw'
 }

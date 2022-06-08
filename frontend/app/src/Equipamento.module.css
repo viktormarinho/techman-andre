@@ -1,0 +1,16 @@
+.equipamento{
+    width: 85vw;
+    border-radius: 10px;
+    background-color: rgb(147, 211, 189);
+    margin-left: 7.5vw;
+    padding: 20px;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    display: flex;
+    gap: 25px;
+}
+
+.equipamento img{
+    height: 200px;
+    width: auto;
+}

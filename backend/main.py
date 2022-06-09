@@ -12,3 +12,8 @@ async def login(senha: str):
 @app.get("/equipamentos")
 async def getAllEquipamentos():
     return dbFunctions.getAllEquipamentos()
+
+
+@app.get("/equipamentos/delete/{id}")
+async def deleteOneEquipamento(id: int):
+    return dbFunctions.deleteEquipamento(id)

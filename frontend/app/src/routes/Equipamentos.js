@@ -8,6 +8,16 @@ function Equipamentos() {
   const [plus, setPlus] = useState("")
   const [userPerm, setUserPerm] = useState("")
 
+  function refetch(){
+    fetch('/equipamentos')
+    .then(res => {
+      res.json()
+        .then(data => setEquipamentos(data))
+    })
+
+    setUserPerm(localStorage.getItem('perm'))
+  }
+
   useEffect(() => {
     fetch('/equipamentos')
     .then(res => {
@@ -19,7 +29,7 @@ function Equipamentos() {
   }, [])
 
   const handleAddProduto = () => {
-    if (userPerm == 'Admin'){
+    if (userPerm === 'Admin'){
       
     }else{
       Notify.failure('Somente um administrador pode adicionar produtos.')
@@ -45,7 +55,7 @@ function Equipamentos() {
     return (
       <div>
         <div style={pageStyles}>
-          {equipamentos.map(equipamento => <Equipamento equip={equipamento}/>)}
+          {equipamentos.map(equipamento => <Equipamento equip={equipamento} refetch={refetch}/>)}
         </div>
         <button 
         style={buttonStyle} 

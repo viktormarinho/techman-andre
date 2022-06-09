@@ -35,7 +35,7 @@ export default function Login(){
 
     return (
         <div style={loginpageStyle}>
-            <img src={TechmanLogo}/>
+            <img src={TechmanLogo} alt="Logo Techman"/>
             <h1 style={senhaStyle}>{senha}</h1>
             <div style={keyboardWrapperStyle}>
                 <Keyboard

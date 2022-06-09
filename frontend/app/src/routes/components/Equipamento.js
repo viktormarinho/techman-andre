@@ -2,7 +2,7 @@ import styles from './Equipamento.module.css'
 import { AiFillDelete, AiOutlineComment } from 'react-icons/ai'
 import { Confirm, Notify } from 'notiflix'
 
-export function Equipamento({equip}){
+export function Equipamento({equip, refetch}){
 
     const handleDelete = () => {
         let userPerm = localStorage.getItem('perm');
@@ -13,7 +13,15 @@ export function Equipamento({equip}){
                 'Sim, deletar',
                 'Não',
                 function okCb(){
-                    console.log('ok!')
+                    fetch(`/equipamentos/delete/${equip.id}`)
+                        .then(res => res.json().then(data => {
+                            if (data.status === "success"){
+                                Notify.success('Produto removido com sucesso.');
+                                refetch()
+                            }else{
+                                Notify.failure('Algo de errado aconteceu e não pudemos deletar o produto.');
+                            }
+                        }));
                 },
                 function cancelCb(){
                     Notify.info('Operação cancelada.');

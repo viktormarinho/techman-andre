@@ -17,3 +17,8 @@ async def getAllEquipamentos():
 @app.get("/equipamentos/delete/{id}")
 async def deleteOneEquipamento(id: int):
     return dbFunctions.deleteEquipamento(id)
+
+
+@app.post("/equipamentos/create/")
+async def createEquipamento(equipamento: dbFunctions.Equipamento):
+    return dbFunctions.addEquipamento(equipamento)

@@ -19,7 +19,7 @@ export default function Login(){
             .then(res => res.json().then(data => {
                 if (data.status){
                     navigate('/equipamentos');
-                    localStorage.setItem('perm', data.perm);
+                    sessionStorage.setItem('perm', data.perm);
                     Notify.success(
                         'Logado com sucesso.'
                     )

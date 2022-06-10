@@ -3,6 +3,7 @@ import { AiFillDelete, AiOutlineComment } from 'react-icons/ai'
 import { Confirm, Notify } from 'notiflix'
 
 export function Equipamento({equip, refetch}){
+    console.log(equip)
 
     const handleDelete = () => {
         let userPerm = localStorage.getItem('perm');

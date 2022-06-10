@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { Equipamento } from "./components/Equipamento"
 import { Notify } from 'notiflix'
+import { useNavigate } from 'react-router-dom';
 
 function Equipamentos() {
 
+  const navigate = useNavigate();
   const [equipamentos, setEquipamentos] = useState('Carregando equipamentos...')
   const [plus, setPlus] = useState("")
   const [userPerm, setUserPerm] = useState("")
@@ -15,17 +17,20 @@ function Equipamentos() {
         .then(data => setEquipamentos(data))
     })
 
-    setUserPerm(localStorage.getItem('perm'))
+    setUserPerm(sessionStorage.getItem('perm'))
   }
 
   useEffect(() => {
+    if (!sessionStorage.getItem('perm')){
+      navigate('/')
+    }
     fetch('/equipamentos')
     .then(res => {
       res.json()
         .then(data => setEquipamentos(data))
     })
 
-    setUserPerm(localStorage.getItem('perm'))
+    setUserPerm(sessionStorage.getItem('perm'))
   }, [])
 
   const handleAddProduto = () => {

@@ -35,7 +35,7 @@ function Equipamentos() {
 
   const handleAddProduto = () => {
     if (userPerm === 'Admin'){
-      
+      navigate("/criarproduto")
     }else{
       Notify.failure('Somente um administrador pode adicionar produtos.')
     }

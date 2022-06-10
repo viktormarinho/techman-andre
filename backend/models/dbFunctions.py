@@ -3,15 +3,7 @@ from models.loginCheck import loginCheck
 from models.getAllEquipamentos import returnAllEquipamentos
 from models.deleteEquipamento import deleteOneEquipamento
 from models.addEquipamento import addOneEquipamento
-from pydantic import BaseModel
-
-
-class Equipamento(BaseModel):
-    nome: str
-    imagem: str
-    desc: str
-    ativo: str
-    data: str
+from .Interfaces import Equipamento
 
 
 def login(senha: str):

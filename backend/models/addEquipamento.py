@@ -1,5 +1,4 @@
-from ast import Eq
-from dbFunctions import Equipamento
+from .Interfaces import Equipamento
 import sqlite3
 
 def addOneEquipamento(equipamento: Equipamento):

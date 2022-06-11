@@ -6,7 +6,7 @@ export function Equipamento({equip, refetch}){
     console.log(equip)
 
     const handleDelete = () => {
-        let userPerm = localStorage.getItem('perm');
+        let userPerm = sessionStorage.getItem('perm');
         if (userPerm === 'Admin'){
             Confirm.show(
                 'Deletar Produto',

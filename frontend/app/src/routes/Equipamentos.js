@@ -62,7 +62,7 @@ function Equipamentos() {
         <div style={pageStyles}>
           {equipamentos.map(equipamento => <Equipamento equip={equipamento} refetch={refetch}/>)}
         </div>
-        <button 
+        <button
         style={buttonStyle} 
         onMouseEnter={handleHover} 
         onMouseLeave={handleLeave}

@@ -6,7 +6,7 @@ def addOneEquipamento(equipamento: Equipamento):
     try:
         cursor = conn.cursor()
 
-        tupla = f'({equipamento.nome}, {equipamento.imagem}, {equipamento.desc}, {equipamento.ativo}, {equipamento.data})'
+        tupla = f"('{equipamento.nome}', '{equipamento.imagem}', '{equipamento.desc}', '{equipamento.ativo}', '{equipamento.data}')"
         cursor.execute(f'Insert into Equipamentos (EquipamentoNome, EquipamentoImagem, EquipamentoDesc, EquipamentoAtivo, EquipamentoData) values {tupla}')
 
         conn.commit()

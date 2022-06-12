@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Equipamento } from "./components/Equipamento"
 import { Notify } from 'notiflix'
 import { useNavigate } from 'react-router-dom';
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs'
 
 function Equipamentos() {
 
@@ -59,6 +60,12 @@ function Equipamentos() {
   }else{
     return (
       <div>
+        <BsFillArrowLeftCircleFill  
+        style={returnStyle}
+        onClick={() => {
+          sessionStorage.setItem('perm', '');
+          navigate('/');
+        }}/>
         <div style={pageStyles}>
           {equipamentos.map(equipamento => <Equipamento equip={equipamento} refetch={refetch}/>)}
         </div>
@@ -79,6 +86,14 @@ function Equipamentos() {
 }
 
 export default Equipamentos
+
+const returnStyle = {
+  fontSize: '40px',
+  position: 'absolute',
+  top: '40px',
+  left: '40px',
+  cursor: 'pointer'
+}
 
 const infoStyle = {
   position: 'absolute',

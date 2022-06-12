@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Notify } from 'notiflix';
+import { BsArrowLeftCircleFill } from 'react-icons/bs'
 
 
 export default function AddProduto(){
@@ -49,6 +50,9 @@ export default function AddProduto(){
 
     return (
         <section>
+            <BsArrowLeftCircleFill 
+            style={returnStyle}
+            onClick={() => navigate('/equipamentos')}/>
             <h1 style={titleStyle}>Adicionar Produto</h1>
             <form
             style={formStyle} 
@@ -96,6 +100,14 @@ export default function AddProduto(){
             </form>
         </section>
     )
+}
+
+const returnStyle = {
+    fontSize: '40px',
+    position: 'absolute',
+    top: '40px',
+    left: '40px',
+    cursor: 'pointer'
 }
 
 const buttonStyle = {

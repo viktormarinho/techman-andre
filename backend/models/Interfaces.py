@@ -7,3 +7,10 @@ class Equipamento(BaseModel):
     desc: str
     ativo: str
     data: str
+
+
+class Comentario(BaseModel):
+    perm: str
+    equipid: int
+    data: str
+    comentario: str

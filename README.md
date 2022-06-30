@@ -1,2 +1,2 @@
 # algo-do-andre
-zzzzzzzzz
+Pequeno projeto de monitoramento de estoque com React e FastAPI 
